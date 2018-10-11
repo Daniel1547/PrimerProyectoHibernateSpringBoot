@@ -1,10 +1,14 @@
 package mx.edu.uacm.domain;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Vehiculo {
@@ -15,6 +19,9 @@ public class Vehiculo {
 	
 	@Column
 	private String modelo;
+	
+	@OneToMany(mappedBy="accesorio")
+	private List<Accesorio> accesorio= new ArrayList<Accesorio>();
 
 	/**
 	 * @return the id
@@ -42,6 +49,13 @@ public class Vehiculo {
 	 */
 	public void setModelo(String modelo) {
 		this.modelo = modelo;
+	}
+
+	public void setAccesorios(List<Accesorio> accesorio) {
+		// TODO Auto-generated method stub 
+		
+		this.accesorio = accesorio;
+		
 	}
 	
 	
