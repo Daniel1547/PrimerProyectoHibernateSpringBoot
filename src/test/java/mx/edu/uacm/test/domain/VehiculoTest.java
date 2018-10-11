@@ -2,6 +2,9 @@ package mx.edu.uacm.test.domain;
 
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.Test;
@@ -43,7 +46,23 @@ public class VehiculoTest {
 	@Test
 	public void testGuardarVehiculosAccesorios() {
 			
-		Accesorio accesorio = new Accesorio("Aleron");
+		Accesorio accesorio1 = new Accesorio("Aleron");
+		Accesorio accesorio2 = new Accesorio("Espoiler");
+		Accesorio accesorio3 = new Accesorio("Dados");
+		
+		List<Accesorio> accesorios= new ArrayList<Accesorio>();
+		accesorios.add(accesorio1);
+		accesorios.add(accesorio2);
+		accesorios.add(accesorio3);
+		
+		Vehiculo vehiculo= new Vehiculo();
+		//vehiculo.setId(1);
+		vehiculo.setModelo("1993");
+		
+		vehiculo.setAccesorios(accesorios);
+		
+		vehiculoRepository.save(vehiculo);
+		
 		}
 
 
